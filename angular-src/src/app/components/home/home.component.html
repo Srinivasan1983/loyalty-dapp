@@ -1,0 +1,57 @@
+
+
+<div class="jumbotron text-center">
+  <h2>Loyalty Dapp</h2>
+  <p class="lead"><B>Welcome to Our Loyalty Customer Shopping Place</B></p>
+  <div>
+  <p *ngIf="!authService.loggedIn()">  <a class="btn btn-primary" [routerLink]="['/register']">Register</a> <a class="btn btn-default" [routerLink]="['/login']">Login</a></p>
+  </div>
+</div>
+
+<body class="container">
+<div class="page-header">
+    <B>Products
+      <div style="float: right; cursor: pointer;">
+        <span class="glyphicon glyphicon-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
+      </div>
+    </B>
+  </div>
+
+<div class="row">
+    <div class="col-md-3 text-center">
+      <img src ="assets/images/img1.png" width="150px" height="150px"/>
+      <br>
+      product 1 - <strong>$10</strong>
+      <br>
+      <button class="btn btn-danger my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="10" data-quantity="1" data-image="images/img_1.png">Add to Cart</button>
+      <a href="#" class="btn btn-info">Details</a>
+    </div>
+
+    <div class="col-md-3 text-center">
+      <img src ="assets/images/img_2.png" width="150px" height="150px">
+      <br>
+      product 2 - <strong>$20</strong>
+      <br>
+      <button class="btn btn-danger my-cart-btn" data-id="2" data-name="product 2" data-summary="summary 2" data-price="20" data-quantity="1" data-image="images/img_2.png">Add to Cart</button>
+      <a href="#" class="btn btn-info">Details</a>
+    </div>
+
+    <div class="col-md-3 text-center">
+      <img src="assets/images/img_3.png" width="150px" height="150px">
+      <br>
+      product 3 - <strong>$30</strong>
+      <br>
+      <button class="btn btn-danger my-cart-btn" data-id="3" data-name="product 3" data-summary="summary 3" data-price="30" data-quantity="1" data-image="images/img_3.png">Add to Cart</button>
+      <a href="#" class="btn btn-info">Details</a>
+    </div>
+
+    <div class="col-md-3 text-center">
+      <img src="assets/images/img_4.png" width="150px" height="150px">
+      <br>
+      product 4 - <strong>$40</strong>
+      <br>
+      <button class="btn btn-danger my-cart-btn" data-id="4" data-name="product 4" data-summary="summary 4" data-price="40" data-quantity="1" data-image="images/img_4.png">Add to Cart</button>
+      <a href="#" class="btn btn-info">Details</a>
+    </div>
+  </div>
+</body>

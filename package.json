@@ -1,0 +1,33 @@
+{
+  "name": "loyalty-dapp",
+  "version": "1.0.0",
+  "description": "Loyalty Dapp",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "dependencies" :{
+    "express":"*",
+    "mongoose":"*",
+    "bcryptjs":"*",
+    "cors": "*",
+    "jsonwebtoken":"*",
+    "body-parser":"*",
+    "passport":"*",
+    "passport-jwt":"*",
+    "mongoose-unique-validator":"*",
+    "express-joi":"*",
+    "http-status":"*",
+    "bitcoinjs-lib":"*",
+    "bigi":"*",
+    "eth-lightwallet":"*",
+    "web3":"*",
+    "hooked-web3-provider":"*",
+    "bluebird":"*",
+    "mongoose-auto-increment":"*",
+    "fs":"*"
+  },
+  "author": "Srinivasan Swaminathan",
+  "license": "ISC"
+}

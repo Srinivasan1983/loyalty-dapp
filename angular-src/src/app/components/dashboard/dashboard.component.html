@@ -1,0 +1,30 @@
+<H1>
+  Under Construction!
+</H1>
+<div class='panel-body'>
+        <div class='table-responsive'>
+            <table class='table'>
+                <thead>
+                    <tr>
+                        <th>Hash</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Block</th>
+                        <th>Amount</th>
+                        <th>Age</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let walletInfo of wallet">
+                        <td>{{walletInfo._id}}</td>
+                        <td>{{walletInfo.type}}</td>
+                        <td>{{walletInfo.address}}</td>
+                        <td>{{walletInfo.passphrase}}</td>
+                        <td>{{walletInfo.WIFKey}}</td>
+                        <td>{{walletInfo.createdAt}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
