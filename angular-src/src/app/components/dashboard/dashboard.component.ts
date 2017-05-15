@@ -10,6 +10,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class DashboardComponent implements OnInit {
   wallet:any;
+  transactionInfo:any;
   user:Object;
   query:any;
 
@@ -17,14 +18,24 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
   //  this.query = 'WalletSchema.find({"userIdentity" : user.username})'
-      this.authService.getWalletInfo().subscribe(walletInfo => {
+  /*    this.authService.getWalletInfo().subscribe(walletInfo => {
       this.wallet = walletInfo.wallet;
-      
+
     },
     err => {
       console.log(err);
       return false;
-    });
+    });*/
+
+    this.authService.getUserTransactionInfo().subscribe(transInfo => {
+        this.transactionInfo = transInfo.transactionInfo;
+
+      },
+      err => {
+        console.log(err);
+        return false;
+      });
+
 
     this.authService.getProfile().subscribe(profile => {
       this.user = profile.user;

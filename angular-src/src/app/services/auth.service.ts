@@ -44,8 +44,7 @@ export class AuthService {
         .map(res => res.json());
   }
 
-
-  storeUserWallet(walletAddress){
+ storeUserWallet(walletAddress){
     let headers = new Headers();
     headers.append('content-Type','application/json');
     return this.http.post('http://localhost:3000/wallet/wallet', walletAddress,  {headers:headers})
@@ -60,11 +59,21 @@ export class AuthService {
         .map(res => res.json());
   }
 
-  getWalletInfo(){
+/*  getWalletInfo(){
     let headers = new Headers();
     this.loadToken();
     headers.append('Authorization',this.authToken);
     headers.append('content-Type','application/json');
+    return this.http.get('http://localhost:3000/wallet/dashboard', {headers:headers})
+        .map(res => res.json());
+  }*/
+
+  getUserTransactionInfo(){
+    let headers = new Headers();
+    this.loadToken();
+    headers.append('Authorization',this.authToken);
+    headers.append('content-Type','application/json');
+    //return this.http.get('http://localhost:3000/wallet/userTransInfo', {headers:headers})
     return this.http.get('http://localhost:3000/wallet/dashboard', {headers:headers})
         .map(res => res.json());
   }
@@ -73,6 +82,12 @@ export class AuthService {
     let headers = new Headers();
     headers.append('content-Type','application/json');
     return this.http.post('http://localhost:3000/wallet/walletInfo',username, {headers:headers})
+        .map(res => res.json());
+  }
+  getUserAccountUnlock(userUnlockInfo){
+    let headers = new Headers();
+    headers.append('content-Type','application/json');
+    return this.http.post('http://localhost:3000/wallet/unlockaccount',userUnlockInfo, {headers:headers})
         .map(res => res.json());
   }
 

@@ -1,28 +1,28 @@
-<H1>
-  Under Construction!
-</H1>
-<div class='panel-body'>
+<H2>
+  All User Transactions!!!
+</H2>
+<div class='table table-striped'>
         <div class='table-responsive'>
-            <table class='table'>
+            <table class='table table-striped'>
                 <thead>
                     <tr>
-                        <th>Hash</th>
-                        <th>From</th>
-                        <th>To</th>
-                        <th>Block</th>
-                        <th>Amount</th>
-                        <th>Age</th>
+                        <th class="col-xs-2">Hash</th>
+                        <th class="col-xs-2">From</th>
+                        <th class="col-xs-2">To</th>
+                        <th class="col-xs-2">Block</th>
+                        <th class="col-xs-2">Amount</th>
+                        <th class="col-xs-2">Age</th>
 
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let walletInfo of wallet">
-                        <td>{{walletInfo._id}}</td>
-                        <td>{{walletInfo.type}}</td>
-                        <td>{{walletInfo.address}}</td>
-                        <td>{{walletInfo.passphrase}}</td>
-                        <td>{{walletInfo.WIFKey}}</td>
-                        <td>{{walletInfo.createdAt}}</td>
+                    <tr *ngFor="let transInfo of transactionInfo">
+                        <td>{{transInfo.txid}}</td>
+                        <td>{{transInfo.from}}</td>
+                        <td>{{transInfo.address}}</td>
+                        <td>{{transInfo.blockNumber}}</td>
+                        <td>{{transInfo.amount}}</td>
+                        <td>{{transInfo.createAt}}</td>
                     </tr>
                 </tbody>
             </table>

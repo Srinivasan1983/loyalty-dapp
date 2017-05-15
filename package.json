@@ -26,7 +26,10 @@
     "hooked-web3-provider":"*",
     "bluebird":"*",
     "mongoose-auto-increment":"*",
-    "fs":"*"
+    "fs":"*",
+    "ethereumjs-tx":"*",
+    "async":"*",
+    "mathjs":"*"
   },
   "author": "Srinivasan Swaminathan",
   "license": "ISC"

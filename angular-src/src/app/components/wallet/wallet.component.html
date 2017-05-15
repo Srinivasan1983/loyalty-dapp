@@ -3,7 +3,7 @@
 <div class="jumbotron">
 <form (ngSubmit)="createWallet()" #heroForm="ngForm">
   <div class="form-group">
-    <label>Password</label>
+    <label>Password</label><br>*Type password to get wallet details
     <input type="password" class="form-control" [(ngModel)]="keyPassword" name="keyPassword">
   </div>
   <input type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid" value="Generate Keys">
@@ -16,6 +16,8 @@
       <li class="list-group-item"><B>Your Wallet Secret Seed : </B>{{walletInfo.passphrase}}</li>
       <li class="list-group-item"><B>Your New Wallet Address :</B> {{walletInfo.firstAddress}}</li>
       <li class="list-group-item"><B>Your New Wallet Private Key :</B> {{walletInfo.WIFKey}}</li>
+      <li class="list-group-item"><B>Your Account Balance :</B> {{walletInfo.balance}}</li>
+      <li class="list-group-item"><B>Your Reward Points :</B> {{walletInfo.userpoints}}</li>
     </ul>
 </div>
 
@@ -24,21 +26,31 @@
 </form>
 </div>
 <br>
-<div class="jumbotron">
+<!--<div class="jumbotron">
 
   <form (ngSubmit)="onTransMadeByUser()">
     <div class="form-group">
       <label>Wallet Address</label>
       <input type="text" class="form-control" [(ngModel)]="address" name="address">
       <label>Wallet password</label>
-      <input type="password" class="form-control" [(ngModel)]="password" name="password">
+      <input type="password" class="form-control" [(ngModel)]="pass" name="pass">
       <label>Amount</label>
       <input type="text" class="form-control" [(ngModel)]="amount" name="amount">
     </div>
     <input type="submit" class="btn btn-success" value="Send">
   </form>
 
-</div>
+</div> -->
+
+<!--<div class="jumbotron">
+  <form (ngSubmit)="onUserAccountUnlock()">
+    <div class="form-group">
+      <label>Wallet password</label>
+      <input type="password" class="form-control" [(ngModel)]="password" name="password">
+    </div>
+    <input type="submit" class="btn btn-success" value="Unlock Account">
+  </form>
+</div> -->
 
 <br>
 <div class="jumbotron">
@@ -50,15 +62,19 @@
                         <th>Hash</th>
                         <th>From</th>
                         <th>To</th>
+                        <th>Block</th>
+                        <th>Amount (in Eth)</th>
                         <th>Age</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let transInfo of userTrans">
-                        <td>{{transInfo._id}}</td>
-                        <td>{{transInfo.domain_key}}</td>
+                        <td>{{transInfo.txid}}</td>
+                        <td>{{transInfo.from}}</td>
                         <td>{{transInfo.address}}</td>
-                        <td>{{transInfo.transactions}}</td>
+                        <td>{{transInfo.blockNumber}}</td>
+                        <td>{{transInfo.amount}}</td>
+                        <td>{{transInfo.createAt}}</td>
                     </tr>
                 </tbody>
             </table>

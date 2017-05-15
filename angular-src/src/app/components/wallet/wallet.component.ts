@@ -23,6 +23,7 @@ export class WalletComponent implements OnInit {
   amount:Number;
   address:String;
   password:String;
+  pass:String;
 
   constructor(private authService:AuthService,
               private router:Router,
@@ -86,7 +87,7 @@ createWallet(){
         name:this.user['username'],
         amount:this.amount,
         address:this.address,
-        password:this.password
+        pass:this.pass
     }
     this.authService.usersTransaction(userTransDetails).subscribe(usertransactionInfo => {
      if(usertransactionInfo.success){
@@ -108,6 +109,25 @@ createWallet(){
       if(walletInfo.success){
          this.walletInfo = walletInfo.walletInfo;
          this.flashMessages.show("your Recent Transaction", {cssClass: 'alert-success', timeout: 3000});
+         this.router.navigate(['/wallet']);
+      }else{
+         this.flashMessages.show("Something Went Wrong", {cssClass: 'alert-danger', timeout: 3000});
+         this.router.navigate(['/wallet']);
+      }
+    });
+
+  }
+
+  onUserAccountUnlock(){
+    const userUnlockInfo = {
+      username:this.user['username'],
+      password:this.password
+    }
+
+     this.authService.getUserAccountUnlock(userUnlockInfo).subscribe(unlockInfo => {
+      if(unlockInfo.success){
+         //this.walletInfo = walletInfo.walletInfo;
+         this.flashMessages.show("you unlocked your Account", {cssClass: 'alert-success', timeout: 3000});
          this.router.navigate(['/wallet']);
       }else{
          this.flashMessages.show("Something Went Wrong", {cssClass: 'alert-danger', timeout: 3000});

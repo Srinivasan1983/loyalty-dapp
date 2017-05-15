@@ -10,8 +10,11 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class ProfileComponent implements OnInit {
   user:Object;
-  
-  constructor(private authService:AuthService, private router:Router, private flashMessages : FlashMessagesService) { }
+  data;
+
+  constructor(private authService:AuthService,
+              private router:Router,
+              private flashMessages : FlashMessagesService) { }
 
   ngOnInit() {
     this.authService.getProfile().subscribe(profile => {
@@ -21,6 +24,7 @@ export class ProfileComponent implements OnInit {
       console.log(err);
       return false;
     });
+
   }
 
 }

@@ -9,6 +9,7 @@ const bitcoinjs = require('bitcoinjs-lib');
 const lightWallet = require('eth-lightwallet');
 const bigi = require('bigi');
 const WalletSchema = require('../models/wallet');
+const transactionSchema = require('../models/transaction');
 const Currency = require('./currencyTypes');
 const Web3 = require('web3');
 const web3 = new Web3();
@@ -73,15 +74,23 @@ const bitcoin = {
 
 
 
-  listUserEvents: (req, res, next) => {
-    const { limit = 100, skip = 0 } = req.query;
-    WalletSchema.list({ limit, skip })
-      .then(callback => res.json({wallet:callback}))
-      .catch(e => next(e));
-    },
+//   listUserEvents: (req, res, next) => {
+//    const { limit = 100, skip = 0 } = req.query;
+//    WalletSchema.list({ limit, skip })
+//      .then(callback => res.json({wallet:callback}))
+//      .catch(e => next(e));
+//    },
+
+    listUserTransactionEvents: (req, res, next) => {
+      const { limit = 100, skip = 0 } = req.query;
+      transactionSchema.list({ limit, skip })
+        .then(callback => res.json({transactionInfo:callback}))
+        .catch(e => next(e));
+      },
+
 
   listUserTransactions: (req, res, next) => {
-     WalletSchema.find({"userIdentity" : req.body.username}) //.select('-WIFKey')
+     transactionSchema.find({"name" : req.body.username}).sort({ blockNumber: -1 }) //.select('-WIFKey')
      .then(callback => res.json({success:true,userTrans:callback}))
       .catch(e => next(e));
 
