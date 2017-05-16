@@ -34,7 +34,7 @@ router.post("/wallet", (req, res, next) => {
         WIFKey:'',
         balance:'',
         data:'',
-        userpoints:''
+        userpoints:0
     });
     UserWallet.addNewUserWallet(newUserWallet, (err, wallet) => {
 
